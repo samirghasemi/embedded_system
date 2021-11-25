@@ -1,0 +1,74 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   8 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c3_untitled"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_c3_untitled"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_state2"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "state2"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_d"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "state2.state6.d"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_e"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "state2.state6.e"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_f"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "state2.state6.f"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_state1"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "state1"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "was_state1"\
+      Description  "StatePrevActiveChild"\
+      SFName       ""\
+      Path         "state1"\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction
