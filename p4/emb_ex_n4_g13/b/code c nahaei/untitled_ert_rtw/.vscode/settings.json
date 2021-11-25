@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "untitled.h": "c",
+        "untitled_private.h": "c",
+        "mw_target_hardware_resources.h": "c",
+        "rtwtypes.h": "c",
+        "untitled_types.h": "c",
+        "stddef.h": "c"
+    }
+}
