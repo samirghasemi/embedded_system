@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "p31.h": "c",
+        "rtwtypes.h": "c",
+        "p31_types.h": "c",
+        "mw_target_hardware_resources.h": "c",
+        "p31_private.h": "c"
+    }
+}
