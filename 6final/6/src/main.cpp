@@ -1,10 +1,10 @@
 #include <Arduino.h>
 #include<Arduino_FreeRTOS.h>
 #include <stddef.h>
-//#include <Servo.h>
+#include <Servo.h>
 int pos = 0;
 
-//Servo servo_9;
+Servo servo_9;
 
 typedef double real_T;
 typedef double time_T;
@@ -87,15 +87,18 @@ float e=2.718;
 float voltageToForce(double voltage){
   return 0.0054 * pow(e,1.66 * voltage);
 }
-///////// to use in tasks
-/*void readFSR(void *pvParameters){
-  vTaskDelay(1000/portTICK_PERIOD_MS);
+
+void readFSR(void *pvParameters){
+  for(;;){
+  
   int fsrReading = analogRead(A0);
   int fsrVoltageMap = map(fsrReading, 0, 1023, 0, 5000);
   double fsrVoltage = fsrVoltageMap/1000.0;
   double force = voltageToForce(fsrVoltage);
   p31_DW.force = force;
-}*/
+  vTaskDelay(2000/portTICK_PERIOD_MS);
+}
+}
 void readTEMP(void *pvParameters){
     (void)pvParameters;
     for(;;){
@@ -111,10 +114,12 @@ void readTEMP(void *pvParameters){
 
 
 
-/*void setSERVO(void *pvParameters){
+void setSERVO(void *pvParameters){
+  for(;;){
   int deg = p31_DW.degree;
   servoMotor(deg);
-}*/
+  vTaskDelay(2000/portTICK_PERIOD_MS);
+}}
 void setDC(void *pvParameters){
   (void)pvParameters;
   for(;;){
@@ -135,7 +140,7 @@ void setDC(void *pvParameters){
 
 
 
-/*void servoMotor(int deg){
+void servoMotor(int deg){
   for (pos = 0; pos <= deg; pos += 1) {
     servo_9.write(pos);
     delay(5);
@@ -145,7 +150,7 @@ void setDC(void *pvParameters){
     delay(5);
   }
   
-}*/
+}
 void setup() {
   Serial.begin(9600);
   pinMode(A1,INPUT);
@@ -155,12 +160,12 @@ void setup() {
   pinMode(0,INPUT);
   pinMode(7,OUTPUT);
 
-  //    xTaskCreate(force,"Fsensor",1000,NULL,1,NULL);
-  //    xTaskCreate(servo,"servo",1000,NULL,1,NULL);
-  Serial.println("1");
-  xTaskCreate(readTEMP,"Hsensor",64,NULL,1,NULL);
-  Serial.println("2");
-  xTaskCreate(setDC,"dc",64,NULL,1,NULL);
+  xTaskCreate(readFSR,"Fsensor",64,NULL,1,NULL);
+  xTaskCreate(setSERVO,"servo",64,NULL,1,NULL);
+  //Serial.println("1");
+  xTaskCreate(readTEMP,"Hsensor",64,NULL,2,NULL);
+ // Serial.println("2");
+  xTaskCreate(setDC,"dc",64,NULL,2,NULL);
   vTaskStartScheduler();
 }
 
