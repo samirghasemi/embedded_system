@@ -74,9 +74,9 @@ void p31_step(void){
 }
 ////////helpers
 void dcMotor(volatile int num){
-  volatile int h=255-num *12;
-  Serial.println(h);
-  analogWrite(6, h);
+  // volatile int h=255-num *12;
+  Serial.println(num);
+  // analogWrite(6, h);
 }
 float voltageToTemp(double voltage){
   return (voltage - 0.5)*100;
@@ -119,7 +119,9 @@ void setDC(void *pvParameters){
   (void)pvParameters;
   for(;;){
     double volatile freq = p31_DW.freq;
-    dcMotor(freq);
+    volatile int h = 255 - freq *12;
+    // Serial.println(h);
+    analogWrite(6, h);
     vTaskDelay(1000/portTICK_PERIOD_MS);
   }
 }
@@ -145,25 +147,28 @@ void setDC(void *pvParameters){
   
 }*/
 void setup() {
-Serial.begin(9600);
+  Serial.begin(9600);
+  pinMode(A1,INPUT);
+  pinMode(A2,OUTPUT);
   pinMode(6,OUTPUT);
   pinMode(1,INPUT);
   pinMode(0,INPUT);
   pinMode(7,OUTPUT);
 
-//    xTaskCreate(force,"Fsensor",1000,NULL,1,NULL);
-//    xTaskCreate(servo,"servo",1000,NULL,1,NULL);
-Serial.println("1");
-xTaskCreate(readTEMP,"Hsensor",64,NULL,1,NULL);
-Serial.println("2");
-xTaskCreate(setDC,"dc",64,NULL,1,NULL);
-vTaskStartScheduler();
+  //    xTaskCreate(force,"Fsensor",1000,NULL,1,NULL);
+  //    xTaskCreate(servo,"servo",1000,NULL,1,NULL);
+  Serial.println("1");
+  xTaskCreate(readTEMP,"Hsensor",64,NULL,1,NULL);
+  Serial.println("2");
+  xTaskCreate(setDC,"dc",64,NULL,1,NULL);
+  vTaskStartScheduler();
 }
 
 void loop() {
-   // Serial.println(p31_DW.freq);
-    //Serial.println(p31_DW.temp);
+
+    // Serial.println("Running");
     p31_step();
+    analogWrite(A2,10);
     delay(500);
 }
 
