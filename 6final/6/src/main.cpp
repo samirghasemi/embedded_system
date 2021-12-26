@@ -90,17 +90,16 @@ float voltageToForce(double voltage){
 }
 
 void servoMotor(int deg){
-  
+  int mydelay = 10;
   Serial.println("servo degree");
   Serial.println(deg);
-
   for (pos = 0; pos <= deg; pos += 1) {
     servo_9.write(pos);
-    delay(5);
+    delay(mydelay);
   }
   for (pos = deg; pos >= 0; pos -= 1) {
     servo_9.write(pos);
-    delay(5);
+    delay(mydelay);
   }
 }
 
@@ -130,7 +129,7 @@ void readTEMP(void *pvParameters){
 void setSERVO(void *pvParameters){
   for(;;){
     int deg = p31_DW.degree;
-    servoMotor(deg*10);
+    servoMotor(deg*5);
     vTaskDelay(2000/portTICK_PERIOD_MS);
   }
 }
@@ -176,9 +175,9 @@ void setup() {
   xTaskCreate(readFSR,"Fsensor",64,NULL,1,NULL);
   xTaskCreate(setSERVO,"servo",64,NULL,1,NULL);
   //Serial.println("1");
-  xTaskCreate(readTEMP,"Hsensor",64,NULL,2,NULL);
+  xTaskCreate(readTEMP,"Hsensor",64,NULL,1,NULL);
  // Serial.println("2");
-  xTaskCreate(setDC,"dc",64,NULL,2,NULL);
+  xTaskCreate(setDC,"dc",64,NULL,1,NULL);
   vTaskStartScheduler();
 
 }
@@ -187,9 +186,6 @@ void loop() {
 
     Serial.println("Running");
     p31_step();
-    // analogWrite(A2,10);
-    // servoMotor(30);
-    // servo_9.write(30);
     delay(2000);
 }
 
