@@ -85,19 +85,34 @@ float voltageToTemp(double voltage){
 float e=2.718;
 
 float voltageToForce(double voltage){
-  return 0.0054 * pow(e,1.66 * voltage);
+  // return 0.0054 * pow(e,1.66 * voltage);
+  return voltage;
+}
+
+void servoMotor(int deg){
+  
+  Serial.println("servo degree");
+  Serial.println(deg);
+
+  for (pos = 0; pos <= deg; pos += 1) {
+    servo_9.write(pos);
+    delay(5);
+  }
+  for (pos = deg; pos >= 0; pos -= 1) {
+    servo_9.write(pos);
+    delay(5);
+  }
 }
 
 void readFSR(void *pvParameters){
   for(;;){
-  
-  int fsrReading = analogRead(A0);
-  int fsrVoltageMap = map(fsrReading, 0, 1023, 0, 5000);
-  double fsrVoltage = fsrVoltageMap/1000.0;
-  double force = voltageToForce(fsrVoltage);
-  p31_DW.force = force;
-  vTaskDelay(2000/portTICK_PERIOD_MS);
-}
+    int fsrReading = analogRead(A0);
+    int fsrVoltageMap = map(fsrReading, 0, 1023, 0, 5000);
+    double fsrVoltage = fsrVoltageMap/1000.0;
+    double force = voltageToForce(fsrVoltage);
+    p31_DW.force = force;
+    vTaskDelay(2000/portTICK_PERIOD_MS);
+  }
 }
 void readTEMP(void *pvParameters){
     (void)pvParameters;
@@ -112,14 +127,16 @@ void readTEMP(void *pvParameters){
     }
 }
 
-
-
 void setSERVO(void *pvParameters){
   for(;;){
-  int deg = p31_DW.degree;
-  servoMotor(deg);
-  vTaskDelay(2000/portTICK_PERIOD_MS);
-}}
+    int deg = p31_DW.degree;
+    servoMotor(deg*10);
+    vTaskDelay(2000/portTICK_PERIOD_MS);
+  }
+}
+
+
+
 void setDC(void *pvParameters){
   (void)pvParameters;
   for(;;){
@@ -140,25 +157,21 @@ void setDC(void *pvParameters){
 
 
 
-void servoMotor(int deg){
-  for (pos = 0; pos <= deg; pos += 1) {
-    servo_9.write(pos);
-    delay(5);
-  }
-  for (pos = deg; pos >= 0; pos -= 1) {
-    servo_9.write(pos);
-    delay(5);
-  }
-  
-}
+
 void setup() {
   Serial.begin(9600);
+  
+  servo_9.attach(9);
+  
   pinMode(A1,INPUT);
   pinMode(A2,OUTPUT);
   pinMode(6,OUTPUT);
   pinMode(1,INPUT);
   pinMode(0,INPUT);
   pinMode(7,OUTPUT);
+  // pinMode(9,OUTPUT);
+
+  // servo_9.write(90);
 
   xTaskCreate(readFSR,"Fsensor",64,NULL,1,NULL);
   xTaskCreate(setSERVO,"servo",64,NULL,1,NULL);
@@ -167,14 +180,17 @@ void setup() {
  // Serial.println("2");
   xTaskCreate(setDC,"dc",64,NULL,2,NULL);
   vTaskStartScheduler();
+
 }
 
 void loop() {
 
-    // Serial.println("Running");
+    Serial.println("Running");
     p31_step();
-    analogWrite(A2,10);
-    delay(500);
+    // analogWrite(A2,10);
+    // servoMotor(30);
+    // servo_9.write(30);
+    delay(2000);
 }
 
 
