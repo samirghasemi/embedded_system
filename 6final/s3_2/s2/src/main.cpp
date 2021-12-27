@@ -2,10 +2,12 @@
 #include<Arduino_FreeRTOS.h>
 #include <stddef.h>
 #include <Servo.h>
+#include <queue.h>
 int pos = 0;
 
 Servo servo_9;
-
+QueueHandle_t sensorValueQueue;
+QueueHandle_t servoValueQueue;
 typedef double real_T;
 typedef double time_T;
 typedef unsigned int uint_T;
@@ -69,25 +71,27 @@ void readTEMP(void *pvParameters){
       // Serial.println("4");
       p31_DW.temp = tempC;
       // Serial.println("5");
-      
+      xQueueSend( sensorValueQueue, (const void*)&p31_DW.temp, portMAX_DELAY );
       // Serial.println(p31_DW.temp);
       vTaskDelay(1000/portTICK_PERIOD_MS);
     }
 }
+
 void setDC(void *pvParameters){
   (void)pvParameters;
-  
+  float valueFromQueue = 0;
   for(;;){
+    if ( xQueueReceive( sensorValueQueue, &valueFromQueue, portMAX_DELAY ) == pdPASS ) {
     double volatile freq = p31_DW.freq *12 ;
+    analogWrite(6, freq);
     // Serial.println(freq);
     // volatile int h = 255 - freq *12;
     // Serial.println(h);
     // Serial.println("servo degree");
     // Serial.println(freq);
-    analogWrite(6, freq);
     // Serial.println("2");
-    vTaskDelay(1000/portTICK_PERIOD_MS);
-  }
+    //vTaskDelay(1000/portTICK_PERIOD_MS);
+  }}
 }
 
 
@@ -98,35 +102,51 @@ void readFSR(void *pvParameters){
     double fsrVoltage = fsrVoltageMap/1000.0;
     double force = fsrVoltage;
     p31_DW.force = force;
-    // Serial.println("readingfsr");
-    // Serial.println(p31_DW.force);
-  
+    xQueueSend( servoValueQueue, (const void*)&p31_DW.force, portMAX_DELAY );
     vTaskDelay(2000/portTICK_PERIOD_MS);
   }
 }
 void setSERVO(void *pvParameters){
+  float valueFromQueue = 0;
+  bool direction = true;
+  float pos = 1;
   for(;;){
+    if ( xQueueReceive( servoValueQueue, &valueFromQueue, portMAX_DELAY ) == pdPASS ) { // If can retrieve an item from queue
     volatile int deg = p31_DW.degree * 5;
     // deg = 90;
     // int mydelay = 1;
-    // Serial.println("servo degree");
-    // Serial.println(deg);
+    // if ( pos < deg && direction )
+    // {
+    //   pos = pos + 0.1;
+      
+    // }
+    // else
+    // {
+    //   direction = false;
+    //   pos = pos - 0.1;
+    //   if( pos <= 1 )
+    //     direction = true;
+    // }
+     //Serial.println("servo degree");
+     //Serial.println(deg);
     // for (pos = 0; pos <= deg; pos += 1) {
-    //   servo_9.write(pos);
+      servo_9.write(pos);
     //   vTaskDelay(mydelay/portTICK_PERIOD_MS);
     // }
     // for (pos = deg; pos >= 0; pos -= 1) {
     //   servo_9.write(pos);
     //   vTaskDelay(mydelay/portTICK_PERIOD_MS);
     // }
-    servo_9.write(deg);
-    vTaskDelay(1000/portTICK_PERIOD_MS);
-    servo_9.write(0);
-    vTaskDelay(1000/portTICK_PERIOD_MS);
+
+   // servo_9.write(deg);
+    
+    // vTaskDelay(1000/portTICK_PERIOD_MS);
+    // servo_9.write(0);
+    // vTaskDelay(1000/portTICK_PERIOD_MS);
+  }
+  // else {servo_9.write(0);}
   }
 }
-
-
 
 void setup() {
   Serial.begin(9600);  
@@ -139,26 +159,39 @@ void setup() {
   pinMode(0,INPUT);
   pinMode(7,OUTPUT);
   
-  xTaskCreate(readFSR,"Fsensor",64,NULL,1,NULL);
-  xTaskCreate(setSERVO,"servo",64,NULL,1,NULL);
-  xTaskCreate(readTEMP,"tempensor",64,NULL,1,NULL);
-  xTaskCreate(setDC,"dcmotor",64,NULL,1,NULL);
-
-  vTaskStartScheduler();
+  // xTaskCreate(readFSR,"Fsensor",64,NULL,1,NULL);
+  //     servoValueQueue = xQueueCreate(
+  //   1                  // Queue length
+  //   , sizeof( float )  // Queue item size
+  // );
+  //   if( servoValueQueue != NULL )
+  // {
+  // xTaskCreate(setSERVO,"servo",64,NULL,1,NULL);
+  // }
+  // xTaskCreate(readTEMP,"tempensor",64,NULL,1,NULL);
+  //   sensorValueQueue = xQueueCreate(
+  //   1                  // Queue length
+  //   , sizeof( float )  // Queue item size
+  // );
+  //   if( sensorValueQueue != NULL )
+  // {
+  // xTaskCreate(setDC,"dcmotor",64,NULL,1,NULL);
+  // }
+  // vTaskStartScheduler();
 
 }
 
 void loop() {
     // Serial.println("Running");
-    p31_step();
+    //p31_step();
+    servo_9.write(180);
     delay(1000);
-
+    servo_9.write(0);
+    delay(1000);
     // test only servo motor
     // servo_9.write(90);
     // delay(2000);
     // servo_9.write(0);
     // delay(2000);
     // test only servo motor
-
-
 }
