@@ -3,8 +3,8 @@
 #include <stddef.h>
 #include <Servo.h>
 #include <queue.h>
-int pos = 0;
 
+int pos = 0;
 Servo servo_9;
 QueueHandle_t sensorValueQueue;
 QueueHandle_t servoValueQueue;
@@ -26,7 +26,6 @@ typedef struct {
 } DW;
 
 volatile DW p31_DW;
-
 void p31_step(void){
   /* Chart: '<Root>/Chart1' */
   if (p31_DW.is_active_c1_p31 == 0U) {
@@ -84,14 +83,8 @@ void setDC(void *pvParameters){
     if ( xQueueReceive( sensorValueQueue, &valueFromQueue, portMAX_DELAY ) == pdPASS ) {
     double volatile freq = p31_DW.freq *12 ;
     analogWrite(6, freq);
-    // Serial.println(freq);
-    // volatile int h = 255 - freq *12;
-    // Serial.println(h);
-    // Serial.println("servo degree");
-    // Serial.println(freq);
-    // Serial.println("2");
-    //vTaskDelay(1000/portTICK_PERIOD_MS);
   }}
+  
 }
 
 
@@ -110,9 +103,11 @@ void setSERVO(void *pvParameters){
   float valueFromQueue = 0;
   bool direction = true;
   float pos = 1;
+  volatile int deg;
   for(;;){
     if ( xQueueReceive( servoValueQueue, &valueFromQueue, portMAX_DELAY ) == pdPASS ) { // If can retrieve an item from queue
-    volatile int deg = p31_DW.degree * 5;
+     deg = p31_DW.degree * 20 +15;
+    
     // deg = 90;
     // int mydelay = 1;
     // if ( pos < deg && direction )
@@ -130,8 +125,14 @@ void setSERVO(void *pvParameters){
      //Serial.println("servo degree");
      //Serial.println(deg);
     // for (pos = 0; pos <= deg; pos += 1) {
-      servo_9.write(pos);
-    //   vTaskDelay(mydelay/portTICK_PERIOD_MS);
+    servo_9.write(deg);
+    //servo_9.write(0);
+     //delay(100);
+    //vTaskDelay(400/portTICK_PERIOD_MS);
+    
+    //delay(100);
+   }
+    //   
     // }
     // for (pos = deg; pos >= 0; pos -= 1) {
     //   servo_9.write(pos);
@@ -145,7 +146,7 @@ void setSERVO(void *pvParameters){
     // vTaskDelay(1000/portTICK_PERIOD_MS);
   }
   // else {servo_9.write(0);}
-  }
+  
 }
 
 void setup() {
@@ -159,35 +160,36 @@ void setup() {
   pinMode(0,INPUT);
   pinMode(7,OUTPUT);
   
-  // xTaskCreate(readFSR,"Fsensor",64,NULL,1,NULL);
-  //     servoValueQueue = xQueueCreate(
-  //   1                  // Queue length
-  //   , sizeof( float )  // Queue item size
-  // );
-  //   if( servoValueQueue != NULL )
-  // {
-  // xTaskCreate(setSERVO,"servo",64,NULL,1,NULL);
-  // }
-  // xTaskCreate(readTEMP,"tempensor",64,NULL,1,NULL);
-  //   sensorValueQueue = xQueueCreate(
-  //   1                  // Queue length
-  //   , sizeof( float )  // Queue item size
-  // );
-  //   if( sensorValueQueue != NULL )
-  // {
-  // xTaskCreate(setDC,"dcmotor",64,NULL,1,NULL);
-  // }
-  // vTaskStartScheduler();
+  xTaskCreate(readFSR,"Fsensor",64,NULL,1,NULL);
+      servoValueQueue = xQueueCreate(
+    1                  // Queue length
+    , sizeof( float )  // Queue item size
+  );
+    if( servoValueQueue != NULL )
+  {
+  xTaskCreate(setSERVO,"servo",64,NULL,1,NULL);
+  }
+  xTaskCreate(readTEMP,"tempensor",64,NULL,1,NULL);
+    sensorValueQueue = xQueueCreate(
+    1                  // Queue length
+    , sizeof( float )  // Queue item size
+  );
+    if( sensorValueQueue != NULL )
+  {
+  xTaskCreate(setDC,"dcmotor",64,NULL,1,NULL);
+  }
+  //vTaskStartScheduler();
 
 }
 
 void loop() {
     // Serial.println("Running");
-    //p31_step();
-    servo_9.write(180);
-    delay(1000);
-    servo_9.write(0);
-    delay(1000);
+    p31_step();
+    // servo_9.write(180);
+     
+     
+    
+    // delay(1000);
     // test only servo motor
     // servo_9.write(90);
     // delay(2000);
