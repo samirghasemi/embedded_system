@@ -125,11 +125,24 @@ void setSERVO(void *pvParameters){
      //Serial.println("servo degree");
      //Serial.println(deg);
     // for (pos = 0; pos <= deg; pos += 1) {
+
+
+
+
+
+
+
     servo_9.write(deg);
-    //servo_9.write(0);
-     //delay(100);
     //vTaskDelay(400/portTICK_PERIOD_MS);
+    //servo_9.write(0);
     
+
+
+
+
+
+
+
     //delay(100);
    }
     //   
@@ -186,9 +199,6 @@ void loop() {
     // Serial.println("Running");
     p31_step();
     // servo_9.write(180);
-     
-     
-    
     // delay(1000);
     // test only servo motor
     // servo_9.write(90);
