@@ -133,8 +133,8 @@ void setSERVO(void *pvParameters){
 
 
     servo_9.write(deg);
-    //vTaskDelay(400/portTICK_PERIOD_MS);
-    //servo_9.write(0);
+    vTaskDelay(400/portTICK_PERIOD_MS);
+    servo_9.write(0);
     
 
 
