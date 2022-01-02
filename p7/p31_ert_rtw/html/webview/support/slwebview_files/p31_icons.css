@@ -1,0 +1,13 @@
+.p310,
+.p311,
+.p312,
+.p313,
+.p314,
+.p315 { background-image: url('p31_icons.png'); width: 16px; height: 16px; }
+
+.p310 { background-position: -0px; }
+.p311 { background-position: -16px; }
+.p312 { background-position: -32px; }
+.p313 { background-position: -48px; }
+.p314 { background-position: -64px; }
+.p315 { background-position: -80px; }
