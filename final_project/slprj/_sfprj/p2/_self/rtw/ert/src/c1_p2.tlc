@@ -1,0 +1,116 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   14 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c1_p2"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_c1_p2"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_s1"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "st13.s1"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_s3"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "st13.s3"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_s1"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "st14.s1"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_s4"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "st14.s4"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_s1"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "st12.s1"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_s2"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "st12.s2"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_s2"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "st24.s2"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_s4"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "st24.s4"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_s3"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "st34.s3"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_s4"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "st34.s4"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_s2"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "st23.s2"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_s3"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "st23.s3"\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction
