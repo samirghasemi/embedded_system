@@ -27,6 +27,7 @@ void test_temp_room1(void){
         res = 1 ;
     } 
     TEST_ASSERT_EQUAL(0,res);
+    // printf("room1 : %lf\n",p2_Y.X_OUTPUT[0]);
 
 }
 
@@ -70,17 +71,21 @@ void test_temp_room4(void){
 }
 
 
+
+
 // OurState state;
 int main(){
     p2_initialize();
 
     UNITY_BEGIN();
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 50; ++i) {
         p2_step();
         RUN_TEST(test_temp_room1);
         RUN_TEST(test_temp_room2);
         RUN_TEST(test_temp_room3);
         RUN_TEST(test_temp_room4);
+        printf("next step : %d\n",i);
+
     }
     
     
