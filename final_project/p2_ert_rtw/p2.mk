@@ -2,7 +2,7 @@
 ## Makefile generated for component 'p2'. 
 ## 
 ## Makefile     : p2.mk
-## Generated on : Tue Jan 25 02:51:18 2022
+## Generated on : Tue Jan 25 13:43:42 2022
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/p2.elf
 ## Product type : executable
 ## 
@@ -18,10 +18,10 @@
 
 PRODUCT_NAME              = p2
 MAKEFILE                  = p2.mk
-MATLAB_ROOT               = D:/Polyspace/R2021a
-MATLAB_BIN                = D:/Polyspace/R2021a/bin
+MATLAB_ROOT               = C:/PROGRA~1/POLYSP~1/R2021a
+MATLAB_BIN                = C:/PROGRA~1/POLYSP~1/R2021a/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
-START_DIR                 = C:/Users/smrh1/Documents/GitHub/embedded_system/final_project
+START_DIR                 = D:/desktop/embedded/HW/embedded_system/final_project
 SOLVER                    = 
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
@@ -61,7 +61,7 @@ PRODUCT_BIN      = $(RELATIVE_PATH_TO_ANCHOR)/$(PRODUCT_NAME).eep
 ARDUINO_TOOLS    = $(ARDUINO_ROOT)/hardware/tools/avr/bin
 ELF2EEP_OPTIONS  = -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0
 DOWNLOAD_ARGS    =  >tmp.trash 2>&1 -P$(ARDUINO_PORT) -V -q -q -q -q -F -C$(ARDUINO_ROOT)/hardware/tools/avr/etc/avrdude.conf -p$(ARDUINO_MCU) -c$(ARDUINO_PROTOCOL) -b$(ARDUINO_BAUD) -D -Uflash:w:
-SLIB_PATH        = C:/Users/smrh1/DOCUME~1/MATLAB/R2021a/ARDUIN~1/ARDUIN~1/FASTER~1
+SLIB_PATH        = C:/Users/Abbas/DOCUME~1/MATLAB/R2021a/ARDUIN~1/ARDUIN~1/FASTER~1
 
 TOOLCHAIN_SRCS = 
 TOOLCHAIN_INCS = 
