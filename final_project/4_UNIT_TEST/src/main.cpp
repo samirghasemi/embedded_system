@@ -274,8 +274,8 @@ static void p2_st14(const real_T X_ROOMTEMPREAD[4])
       p2_DW.is_c1_p2 = p2_IN_st24;
       p2_B.h1 = 0.0;
       p2_B.h3 = 0.0;
-      p2_B.Room[0] = 1.0;
-      p2_B.Room[1] = 3.0;
+      p2_B.Room[0] = 2.0;
+      p2_B.Room[1] = 4.0;
       p2_DW.is_s2_n = p2_IN_s2_on;
       p2_B.h2 = 1.0;
       p2_DW.is_s4_i = p2_IN_s4_on;
@@ -366,8 +366,8 @@ static void p2_st23(const real_T X_ROOMTEMPREAD[4])
     p2_DW.is_c1_p2 = p2_IN_st24;
     p2_B.h1 = 0.0;
     p2_B.h3 = 0.0;
-    p2_B.Room[0] = 1.0;
-    p2_B.Room[1] = 3.0;
+    p2_B.Room[0] = 2.0;
+    p2_B.Room[1] = 4.0;
     p2_DW.is_s2_n = p2_IN_s2_on;
     p2_B.h2 = 1.0;
     p2_DW.is_s4_i = p2_IN_s4_on;
@@ -561,8 +561,8 @@ static void p2_st34(const real_T X_ROOMTEMPREAD[4])
     p2_DW.is_c1_p2 = p2_IN_st24;
     p2_B.h1 = 0.0;
     p2_B.h3 = 0.0;
-    p2_B.Room[0] = 1.0;
-    p2_B.Room[1] = 3.0;
+    p2_B.Room[0] = 2.0;
+    p2_B.Room[1] = 4.0;
     p2_DW.is_s2_n = p2_IN_s2_on;
     p2_B.h2 = 1.0;
     p2_DW.is_s4_i = p2_IN_s4_on;
@@ -645,6 +645,8 @@ void p2_step(void)
       p2_B.h4 = 0.0;
       p2_B.h2 = 1.0;
       p2_B.h3 = 1.0;
+      p2_B.Room[0] = 2.0;
+      p2_B.Room[1] = 3.0;
     } else {
       switch (p2_DW.is_c1_p2) {
        case p2_IN_st12:
@@ -698,8 +700,8 @@ void p2_step(void)
           p2_DW.is_c1_p2 = p2_IN_st24;
           p2_B.h1 = 0.0;
           p2_B.h3 = 0.0;
-          p2_B.Room[0] = 1.0;
-          p2_B.Room[1] = 3.0;
+          p2_B.Room[0] = 2.0;
+          p2_B.Room[1] = 4.0;
           p2_DW.is_s2_n = p2_IN_s2_on;
           p2_B.h2 = 1.0;
           p2_DW.is_s4_i = p2_IN_s4_on;

@@ -70,7 +70,32 @@ void test_temp_room4(void){
     TEST_ASSERT_EQUAL(0,res);
 }
 
+void test_check_heater(void){
+    float h1 =  p2_Y.H_OUTPUT[0];
+    float h2 =  p2_Y.H_OUTPUT[1];
+    float h3 =  p2_Y.H_OUTPUT[2];
+    float h4 =  p2_Y.H_OUTPUT[3];
+    // printf("H : %lf , %lf , %lf , %lf\n",h1, h2 , h3 , h4);
+    // printf("ROOM : %lf , %lf \n",p2_Y.HEATER1_OUTPUT , p2_Y.HEATER2_OUTPUT);
 
+    int res = 0;
+    if (h1 == 1)
+    {
+        TEST_ASSERT_TRUE(p2_Y.HEATER1_OUTPUT == 1 || p2_Y.HEATER2_OUTPUT == 1);
+    }
+    if (h2 == 1)
+    {
+        TEST_ASSERT_TRUE(p2_Y.HEATER1_OUTPUT == 2 || p2_Y.HEATER2_OUTPUT == 2);
+    }
+    if (h3 == 1)
+    {
+        TEST_ASSERT_TRUE(p2_Y.HEATER1_OUTPUT == 3 || p2_Y.HEATER2_OUTPUT == 3);
+    }
+    if (h4 == 1)
+    {
+        TEST_ASSERT_TRUE(p2_Y.HEATER1_OUTPUT == 4 || p2_Y.HEATER2_OUTPUT == 4);
+    }
+}
 
 
 // OurState state;
@@ -84,6 +109,7 @@ int main(){
         RUN_TEST(test_temp_room2);
         RUN_TEST(test_temp_room3);
         RUN_TEST(test_temp_room4);
+        RUN_TEST(test_check_heater);
         printf("next step : %d\n",i);
 
     }
