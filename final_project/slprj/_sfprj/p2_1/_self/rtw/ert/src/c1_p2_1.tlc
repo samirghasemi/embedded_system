@@ -1,0 +1,233 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   27 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "sfEvent"\
+      Description  "ActiveChartEvent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_c1_p2_1"\
+      Description  "StateIsActive"\
+      SFName       "is_active_c1_p2_1"\
+      Path         "is_active_c1_p2_1"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_c1_p2_1"\
+      Description  "StateActiveChild"\
+      SFName       "is_c1_p2_1"\
+      Path         "is_c1_p2_1"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_s1"\
+      Description  "StateActiveChild"\
+      SFName       "is_s1"\
+      Path         "st13.s1.is_s1"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_s1"\
+      Description  "StateIsActive"\
+      SFName       "is_active_s1"\
+      Path         "st13.s1.is_active_s1"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_s3"\
+      Description  "StateActiveChild"\
+      SFName       "is_s3"\
+      Path         "st13.s3.is_s3"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_s3"\
+      Description  "StateIsActive"\
+      SFName       "is_active_s3"\
+      Path         "st13.s3.is_active_s3"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_s1"\
+      Description  "StateActiveChild"\
+      SFName       "is_s1"\
+      Path         "st14.s1.is_s1"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_s1"\
+      Description  "StateIsActive"\
+      SFName       "is_active_s1"\
+      Path         "st14.s1.is_active_s1"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_s4"\
+      Description  "StateActiveChild"\
+      SFName       "is_s4"\
+      Path         "st14.s4.is_s4"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_s4"\
+      Description  "StateIsActive"\
+      SFName       "is_active_s4"\
+      Path         "st14.s4.is_active_s4"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_s1"\
+      Description  "StateActiveChild"\
+      SFName       "is_s1"\
+      Path         "st12.s1.is_s1"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_s1"\
+      Description  "StateIsActive"\
+      SFName       "is_active_s1"\
+      Path         "st12.s1.is_active_s1"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_s2"\
+      Description  "StateActiveChild"\
+      SFName       "is_s2"\
+      Path         "st12.s2.is_s2"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_s2"\
+      Description  "StateIsActive"\
+      SFName       "is_active_s2"\
+      Path         "st12.s2.is_active_s2"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_s2"\
+      Description  "StateActiveChild"\
+      SFName       "is_s2"\
+      Path         "st24.s2.is_s2"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_s2"\
+      Description  "StateIsActive"\
+      SFName       "is_active_s2"\
+      Path         "st24.s2.is_active_s2"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_s4"\
+      Description  "StateActiveChild"\
+      SFName       "is_s4"\
+      Path         "st24.s4.is_s4"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_s4"\
+      Description  "StateIsActive"\
+      SFName       "is_active_s4"\
+      Path         "st24.s4.is_active_s4"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_s3"\
+      Description  "StateActiveChild"\
+      SFName       "is_s3"\
+      Path         "st34.s3.is_s3"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_s3"\
+      Description  "StateIsActive"\
+      SFName       "is_active_s3"\
+      Path         "st34.s3.is_active_s3"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_s4"\
+      Description  "StateActiveChild"\
+      SFName       "is_s4"\
+      Path         "st34.s4.is_s4"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_s4"\
+      Description  "StateIsActive"\
+      SFName       "is_active_s4"\
+      Path         "st34.s4.is_active_s4"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_s2"\
+      Description  "StateActiveChild"\
+      SFName       "is_s2"\
+      Path         "st23.s2.is_s2"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_s2"\
+      Description  "StateIsActive"\
+      SFName       "is_active_s2"\
+      Path         "st23.s2.is_active_s2"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_s3"\
+      Description  "StateActiveChild"\
+      SFName       "is_s3"\
+      Path         "st23.s3.is_s3"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_active_s3"\
+      Description  "StateIsActive"\
+      SFName       "is_active_s3"\
+      Path         "st23.s3.is_active_s3"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

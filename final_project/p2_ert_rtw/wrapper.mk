@@ -26,7 +26,7 @@ PRODUCT_BIN = $(RELATIVE_PATH_TO_ANCHOR)/$(PRODUCT_NAME).eep
 ARDUINO_TOOLS = $(ARDUINO_ROOT)/hardware/tools/avr/bin
 ELF2EEP_OPTIONS = -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0
 DOWNLOAD_ARGS =  >tmp.trash 2>&1 -P$(ARDUINO_PORT) -V -q -q -q -q -F -C$(ARDUINO_ROOT)/hardware/tools/avr/etc/avrdude.conf -p$(ARDUINO_MCU) -c$(ARDUINO_PROTOCOL) -b$(ARDUINO_BAUD) -D -Uflash:w:
-SLIB_PATH = C:/Users/smrh1/DOCUME~1/MATLAB/R2021a/ARDUIN~1/ARDUIN~1/FASTER~1
+SLIB_PATH = C:/Users/Abbas/DOCUME~1/MATLAB/R2021a/ARDUIN~1/ARDUIN~1/FASTER~1
 
 
 #-------------------------
@@ -75,7 +75,7 @@ EXECUTE = $(PRODUCT)
 
 
 # Builder: GMAKE Utility
-MAKE_PATH = D:/Polyspace/R2021a/bin/win64
+MAKE_PATH = C:/Program Files/Polyspace/R2021a/bin/win64
 MAKE = $(MAKE_PATH)/gmake
 
 
@@ -164,7 +164,7 @@ SHAREDLIB_LDFLAGS += $(SHAREDLIB_LDFLAGS_SKIPFORSIL)
 ###########################################################################
 SLMKPATH=C:/PROGRA~3/MATLAB/SUPPOR~1/R2021a/toolbox/target/SUPPOR~1/ARDUIN~2/STATIC~1
 MODELMK=p2.mk
-SLIB_PATH=C:/Users/smrh1/DOCUME~1/MATLAB/R2021a/ARDUIN~1/ARDUIN~1/FASTER~1
+SLIB_PATH=C:/Users/Abbas/DOCUME~1/MATLAB/R2021a/ARDUIN~1/ARDUIN~1/FASTER~1
 VARIANT_HEADER_PATH=$(ARDUINO_ROOT)/hardware/arduino/avr/variants/standard
 ARDUINO_SKETCHBOOK_ROOT=C:/PROGRA~3/MATLAB/SUPPOR~1/R2021a/aIDE/portable/SKETCH~1/LIBRAR~1
 ARDUINO_BASESUPPORTPKG_ROOT=C:/PROGRA~3/MATLAB/SUPPOR~1/R2021a/toolbox/target/SUPPOR~1/ARDUIN~2
@@ -194,6 +194,6 @@ export ARDUINO_BASESUPPORTPKG_ROOT
 .PHONY : all
 all : 
 	@echo "### Generating static library."
-	"$(MAKE)" -j7 -C "$(SLMKPATH)" SHELL="$(SHELL)" -f avrcore.mk all
-	"$(MAKE)" -j7 SHELL="$(SHELL)" -f "$(MODELMK)" all
+	"$(MAKE)" -j5 -C "$(SLMKPATH)" SHELL="$(SHELL)" -f avrcore.mk all
+	"$(MAKE)" -j5 SHELL="$(SHELL)" -f "$(MODELMK)" all
 
