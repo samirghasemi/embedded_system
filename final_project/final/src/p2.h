@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'p2'.
  *
- * Model version                  : 1.57
+ * Model version                  : 1.58
  * Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
- * C/C++ source code generated on : Tue Jan 25 13:45:23 2022
+ * C/C++ source code generated on : Tue Jan 25 20:05:51 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Atmel->AVR
@@ -312,9 +312,18 @@ extern void p2_step(void);
 extern void p2_terminate(void);
 
 /* Real-time Model object */
-// extern RT_MODEL_p2_T *const p2_M;
+extern RT_MODEL_p2_T *const p2_M;
 extern volatile boolean_T stopRequested;
 extern volatile boolean_T runModel;
+
+/*-
+ * These blocks were eliminated from the model due to optimizations:
+ *
+ * Block '<Root>/Display' : Unused code path elimination
+ * Block '<Root>/Display1' : Unused code path elimination
+ * Block '<Root>/Display2' : Unused code path elimination
+ * Block '<Root>/Display3' : Unused code path elimination
+ */
 
 /*-
  * The generated code includes comments that allow you to trace directly

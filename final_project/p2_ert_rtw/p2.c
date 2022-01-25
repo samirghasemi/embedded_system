@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'p2'.
  *
- * Model version                  : 1.56
+ * Model version                  : 1.58
  * Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
- * C/C++ source code generated on : Tue Jan 25 13:43:35 2022
+ * C/C++ source code generated on : Tue Jan 25 20:05:51 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Atmel->AVR
@@ -868,9 +868,9 @@ void p2_step(void)
     p2_M->Timing.t[0] = rtsiGetSolverStopTime(&p2_M->solverInfo);
 
     {
-      /* Update absolute timer for sample time: [0.2s, 0.0s] */
+      /* Update absolute timer for sample time: [0.1s, 0.0s] */
       /* The "clockTick1" counts the number of times the code of this task has
-       * been executed. The resolution of this integer timer is 0.2, which is the step size
+       * been executed. The resolution of this integer timer is 0.1, which is the step size
        * of the task. Size of "clockTick1" ensures timer will not overflow during the
        * application lifespan selected.
        */
@@ -925,7 +925,7 @@ void p2_initialize(void)
   rtsiSetSolverData(&p2_M->solverInfo, (void *)&p2_M->intgData);
   rtsiSetSolverName(&p2_M->solverInfo,"ode3");
   rtmSetTPtr(p2_M, &p2_M->Timing.tArray[0]);
-  p2_M->Timing.stepSize0 = 0.2;
+  p2_M->Timing.stepSize0 = 0.1;
   rtmSetFirstInitCond(p2_M, 1);
 
   /* Start for Constant: '<Root>/X0_MATRIX' */
