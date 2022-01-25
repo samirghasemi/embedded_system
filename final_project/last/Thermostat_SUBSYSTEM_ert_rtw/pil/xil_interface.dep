@@ -1,0 +1,59 @@
+xil_interface.o: \
+ D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/pil/xil_interface.c \
+ D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/Thermostat_SUBSYSTEM.h \
+ D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/rtwtypes.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/simulink/include/rtw_continuous.h \
+ D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/rtwtypes.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/simulink/include/rtw_solver.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/simulink/include/rtw_continuous.h \
+ D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/Thermostat_SUBSYSTEM_types.h \
+ D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/MW_target_hardware_resources.h \
+ C:/PROGRA~3/MATLAB/SUPPOR~1/R2021a/toolbox/target/SUPPOR~1/ARDUIN~1/SCHEDU~1/include/arduinoAVRScheduler.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2021a/aIDE/hardware/arduino/avr/cores/arduino/Arduino.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2021a/aIDE/hardware/arduino/avr/cores/arduino/binary.h \
+ C:/ProgramData/MATLAB/SupportPackages/R2021a/aIDE/hardware/arduino/avr/variants/standard/pins_arduino.h \
+ D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/Thermostat_SUBSYSTEM_private.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_interface.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_interface_common.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_common.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_interface_lib.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_error_codes.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_data_stream.h
+
+D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/Thermostat_SUBSYSTEM.h:
+
+D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/rtwtypes.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/simulink/include/rtw_continuous.h:
+
+D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/rtwtypes.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/simulink/include/rtw_solver.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/simulink/include/rtw_continuous.h:
+
+D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/Thermostat_SUBSYSTEM_types.h:
+
+D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/MW_target_hardware_resources.h:
+
+C:/PROGRA~3/MATLAB/SUPPOR~1/R2021a/toolbox/target/SUPPOR~1/ARDUIN~1/SCHEDU~1/include/arduinoAVRScheduler.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2021a/aIDE/hardware/arduino/avr/cores/arduino/Arduino.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2021a/aIDE/hardware/arduino/avr/cores/arduino/binary.h:
+
+C:/ProgramData/MATLAB/SupportPackages/R2021a/aIDE/hardware/arduino/avr/variants/standard/pins_arduino.h:
+
+D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/Thermostat_SUBSYSTEM_private.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_interface.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_interface_common.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_common.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_interface_lib.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_error_codes.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_data_stream.h:

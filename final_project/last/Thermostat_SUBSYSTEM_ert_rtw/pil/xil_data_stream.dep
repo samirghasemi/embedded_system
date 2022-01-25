@@ -1,0 +1,44 @@
+xil_data_stream.o: \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_data_stream.c \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/comms_interface.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/coder/rtiostream/src/rtiostream.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/coder/rtiostream/src/utils/rtiostream_utils.h \
+ D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/rtwtypes.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_data_stream.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_common.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_error_codes.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_interface_lib.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_interface_common.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/extern/include/coder/connectivity/XILTgtAppSvc/XILTgtAppSvc_CInterface.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/extern/include/coder/connectivity/XILTgtAppSvc/XILTgtAppSvc.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/extern/include/coder/connectivity/XILTgtAppSvc/XILTgtAppSvc_spec.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xilcomms_rtiostream.h \
+ C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/rx_tx_buffer_sizes.h
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/comms_interface.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/coder/rtiostream/src/rtiostream.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/coder/rtiostream/src/utils/rtiostream_utils.h:
+
+D:/desktop/embedded/HW/embedded_system/final_project/last/Thermostat_SUBSYSTEM_ert_rtw/rtwtypes.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_data_stream.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_common.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_error_codes.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_interface_lib.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xil_interface_common.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/extern/include/coder/connectivity/XILTgtAppSvc/XILTgtAppSvc_CInterface.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/extern/include/coder/connectivity/XILTgtAppSvc/XILTgtAppSvc.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/extern/include/coder/connectivity/XILTgtAppSvc/XILTgtAppSvc_spec.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/xilcomms_rtiostream.h:
+
+C:/PROGRA~1/POLYSP~1/R2021a/toolbox/rtw/targets/pil/c/rx_tx_buffer_sizes.h:

@@ -1,0 +1,12 @@
+
+avrdude: AVR device initialized and ready to accept instructions
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "D:\desktop\embedded\HW\embedded_system\final_project\last\Thermostat_SUBSYSTEM_ert_rtw\pil\..\..\Thermostat_SUBSYSTEM.hex"
+avrdude: writing flash (15080 bytes):
+avrdude: 15080 bytes of flash written
+
+avrdude done.  Thank you.
+
